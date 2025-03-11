@@ -34,7 +34,7 @@ For WebAssembly to thrive in embedded and systems programming, the community mus
 
 ## Purpose of This Document
 
-The goal of this document is to articulate the requirements essential for WebAssembly (Wasm) and the WebAssembly System Interface (WASI) in embedded systems. It examines the current trajectory of the WASI 0.2 standard and onwards, identifying gaps and challenges that impact embedded use cases. This document aims to highlight areas where the current WASI approach may fall short against the needs of embedded developers and system architects
+This is an internal document designed to provoke discussion around WASI and the requirements of the embedded community. The goal of this document is to articulate the requirements essential for WebAssembly (Wasm) and the WebAssembly System Interface (WASI) in embedded systems. It examines the current trajectory of the WASI 0.2 standard and onwards, identifying gaps and challenges that impact embedded use cases. This document aims to highlight areas where the current WASI approach may fall short against the needs of embedded developers and system architects
 
 Beyond analysis, this document also outlines an alternative approach that the Embedded SIG feels better aligns with embedded system constraints and operational realities. This proposal will be presented to the WASI Community Group (WASI CG) to advocate for a more inclusive and adaptable standard—one that ensures WebAssembly’s continued viability in embedded applications while maintaining alignment and compatibility with the broader WASI ecosystem.
 
