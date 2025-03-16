@@ -96,11 +96,34 @@ A stable and long-term supported toolchain is essential for any healthy platform
 
 The meaningful, widespread use of WASI Preview 1 (P1) means that many runtimes and applications depend on its established behavior. Developers have invested significant time and effort into building applications, frameworks, and infrastructure around WASI P1, making it a critical part of the WebAssembly ecosystem. 
 
-There has been considerable effort expended to ensure that the WASI 0.1 tool chain remains useable while the WASI 0.2+ transition continues, an example of this is the [WASI Preview Transition](https://github.com/abrown/wasi-libc/blob/preview2-plan/docs/preview2-transition.md). There is as yet no way to run WASI 0.2+ binaries on a WASI 0.1 runtime and, although there have been some investigations, like [this one from Marcin](https://github.com/loganek/wasi-snapshot-preview2-to-preview1-adapter), none have been successfully reached a conclusion and been used in production. Additionally, the long term continued investment in WASI 0.1 is not guaranteed. The organizations supporting WASI 0.1 are the same organizations driving WASI 0.2+, as WASI moves towards a 1.0 release these organizations will not have the need to continue to offer support for WASI 0.1.
+### Current The State of Support for the WASI 0.1 (Preview 1) Tool Chain
+#### Support in March 2025
+There has been considerable effort expended to ensure that the WASI 0.1 tool chain remains useable while the WASI 0.2+ transition continues, an example of this is the [WASI Preview Transition](https://github.com/abrown/wasi-libc/blob/preview2-plan/docs/preview2-transition.md), as a result today the WASI 0.1 tool chain is supported and functional. However, the longevity of this support and the future of the WASI 0.1 tool chain is a concern.
 
-The lack of a commitment to provide long term support for WASI 0.1 and the inability of WASI 0.1 runtimes to execute the newer binary formats produced by the WASI 0.2+ toolchains will result in leaving early adopters without a viable migration path. If left unaddressed this risks fragmenting the ecosystem and undermining trust in WASI’s long-term viability. 
+#### Support Due to Decline as WASI 1.0 RC Approaches - Due 2026
+WASI 0.1 tool chain's current support can in part be attributed to the fact that the WASI 0.2 + toolchain generates code which still relies on parts of WASI 0.1. The expectation is that this dependency will be removed as WASI 0.2+ matures. When this occurs the cutting edge of the standards will have no dependency, and hence no requirement to support WASI 0.1. It is anticipated that this could occur before WASI 1.0 RC, which is due for release in 2026. This raises the very real prospect of declining tool chain support for WASI 0.1 runtimes.
 
-Instead, fostering a healthy ecosystem requires maintaining continuity—allowing developers to leverage improvements in newer WASI versions while ensuring their existing investments remain functional. To this end there is a clear need for WASI’s toolchain to offer stability over time, ensuring that P1-based runtimes remain viable while providing a clear, incremental path for adoption of newer standards. This approach not only protects existing investments but also encourages broader adoption by demonstrating that WASI is a reliable, long-term technology for software development.
+#### Impact of Declining Support
+There remains no way to run WASI 0.2+ binaries on a WASI 0.1 runtime. This means that as WASI 0.2+ matures that there will be no viable, supported, tool chain which can generate code the WASI 0.1 runtimes can execute. This will leave early adopters of WASI without any ability to build new binaries for their runtimes. Many users of WASI 0.1 are unable to update their runtimes, leaving them with no viable migration path to adopting the WASI 0.2+ toolchain, and technology family.
+
+#### Efforts to Address Migration and Toolchain Support
+This issue has been raised previously within the community. It has resulted in a number of ideas:
+
+- [A WASI 0.2+ to WASI 0.1 adapter proposed by Marcin](https://github.com/loganek/wasi-snapshot-preview2-to-preview1-adapter).
+- The `wasi-wasip*-module` approach propsed by Luke for compiling components to module bindings.
+
+And, more recently:
+
+- The "jco transpiler" for WASI 0.1, where WASI 0.2+ binaries  could pre-converted to execute on WASI 0.1 runtimes.
+
+None of these efforts have received the investment or developer time required to see them through to conclusion. This lack of investment can partially be attributed to the moving target which is WASI 0.2+. The cutting edge of the standard is constantly being refined an improved, this means that any effort to address the issues above could be negated by a future change in the WASI 0.2+ work.
+
+Without further investigation questions still remain about the viability of these proposals in terms of practicality based on the changing WASI 0.2+ definitions, the performance of the resulting code, and the size of the resulting binaries.
+
+The net result is that there is a near term, high probability of WASI 0.1's support declining, and no certainty around supplying long term support for it. If left unaddressed this risks fragmenting the ecosystem and undermining trust in WASI’s long-term viability. 
+
+#### Action Required
+Fostering a healthy ecosystem requires maintaining continuity—allowing developers to leverage improvements in newer WASI versions while ensuring their existing investments remain functional. To this end there is a clear need for WASI’s toolchain to offer stability over time, ensuring that WASI 0.1 (P1-based) runtimes remain viable while providing a clear, incremental path for adoption of newer standards. This approach not only protects existing investments but also encourages broader adoption by demonstrating that WASI is a reliable, long-term technology for software development.
 
 ## Addressing the Constraints of Embedded Systems
 
