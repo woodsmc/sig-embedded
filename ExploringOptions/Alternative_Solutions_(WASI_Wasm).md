@@ -1,3 +1,17 @@
+> ## This discussion document has been superseded by two Issues
+>
+> ```diff
+> - This document is out of date. This is a discussion document. 
+> - It provided a venue for internal discussion with the E-SIG but does not define concrete next steps. 
+> - The reader is referred to the two tasks which were spawned from this document as follows:
+> -   Task 1 : Support for maintaining the existing tooling for WASI Preview 1
+> -   https://github.com/bytecodealliance/sig-embedded/issues/19
+> -   Task 2 : Forward Compatibility / Roadmap for future Convergence 
+> -   https://github.com/bytecodealliance/sig-embedded/issues/20
+> ```
+
+
+
 # WASI / Wasm System Structure Exploration of improvements or alternative solutions
 
 # Overview
@@ -176,6 +190,18 @@ As a group we should work to incorporate migration paths into the standardizatio
 
 # Solution Proposals
 
+> ## This discussion document has been superseded by two Issues
+>
+> ```diff
+> - This document is out of date. This is a discussion document. 
+> - It provided a venue for internal discussion with the E-SIG but does not define concrete next steps. 
+> - The reader is referred to the two tasks which were spawned from this document as follows:
+> -   Task 1 : Support for maintaining the existing tooling for WASI Preview 1
+> -   https://github.com/bytecodealliance/sig-embedded/issues/19
+> -   Task 2 : Forward Compatibility / Roadmap for future Convergence 
+> -   https://github.com/bytecodealliance/sig-embedded/issues/20
+> ```
+
 ## 1: A Layered Approach to WASI
 
 To ensure broad adoption across different domains, it is our proposal that WASI should be structured into distinct layers that clearly separate low-level system primitives from high-level application interfaces. This approach enables both performance-critical operations and flexible, language-agnostic interoperability without forcing unnecessary trade-offs between them.
@@ -187,6 +213,22 @@ The Component Model provides a well-defined mechanism for defining Foreign Funct
 By clearly defining these layers, we can allow high-level APIs to be built on top of low-level primitives without imposing unnecessary constraints. The WebAssembly Application Interface can provide flexible, structured APIs built around the Component Model and the Canonical ABI.  However, these application-level interfaces should be distinct from the low-level WebAssembly System Interface, which provides fundamental operations that are difficult or impossible to emulate.
 
 ### Two Related Standards
+
+
+
+> ## This discussion document has been superseded by two Issues
+>
+> ```diff
+> - This document is out of date. This is a discussion document. 
+> - It provided a venue for internal discussion with the E-SIG but does not define concrete next steps. 
+> - The reader is referred to the two tasks which were spawned from this document as follows:
+> -   Task 1 : Support for maintaining the existing tooling for WASI Preview 1
+> -   https://github.com/bytecodealliance/sig-embedded/issues/19
+> -   Task 2 : Forward Compatibility / Roadmap for future Convergence 
+> -   https://github.com/bytecodealliance/sig-embedded/issues/20
+> ```
+
+
 
 To support this layered approach, we propose splitting WASI into two separate standards, each with its own scope and governance:
 
@@ -210,11 +252,43 @@ To ensure backward compatibility with existing P1-based runtimes, we propose a t
 
 Alternatively, it would be possible to have both the Preview 1 API and the WebAssembly System Interface coexist within a single runtime and, thus, not require an adapter. 
 
+
+
+> ## This discussion document has been superseded by two Issues
+>
+> ```diff
+> - This document is out of date. This is a discussion document. 
+> - It provided a venue for internal discussion with the E-SIG but does not define concrete next steps. 
+> - The reader is referred to the two tasks which were spawned from this document as follows:
+> -   Task 1 : Support for maintaining the existing tooling for WASI Preview 1
+> -   https://github.com/bytecodealliance/sig-embedded/issues/19
+> -   Task 2 : Forward Compatibility / Roadmap for future Convergence 
+> -   https://github.com/bytecodealliance/sig-embedded/issues/20
+> ```
+
+
+
 ### Avoiding Confusion Between WSI and WAI
 
 A clear distinction between the WebAssembly System Interface (WSI) and the WebAssembly Application Interface (WAI) is essential to prevent confusion among developers and ensure that each serves its intended purpose effectively. Without well-defined boundaries, there is a risk of misplaced expectations, where developers mistakenly assume that high-level application concerns should be addressed at the system level, or that low-level system functionality should conform to application-layer design principles.
 
 By defining explicit criteria for what belongs in each layer, we can ensure that developers understand the trade-offs of working at different levels of the WebAssembly stack, enabling them to make informed decisions when designing and porting applications.
+
+
+
+> ## This discussion document has been superseded by two Issues
+>
+> ```diff
+> - This document is out of date. This is a discussion document. 
+> - It provided a venue for internal discussion with the E-SIG but does not define concrete next steps. 
+> - The reader is referred to the two tasks which were spawned from this document as follows:
+> -   Task 1 : Support for maintaining the existing tooling for WASI Preview 1
+> -   https://github.com/bytecodealliance/sig-embedded/issues/19
+> -   Task 2 : Forward Compatibility / Roadmap for future Convergence 
+> -   https://github.com/bytecodealliance/sig-embedded/issues/20
+> ```
+
+
 
 #### WebAssembly System Interface (WSI): Low-Level System Interactions
 
@@ -257,6 +331,20 @@ WAI, on the other hand, provides higher-level APIs designed for application deve
 
 While WAI can be built on top of WSI leveraging low-level operations for its implementation, it is not a requirement. WAI is designed to be independent in both evolution and design, allowing it to grow and adapt without being constrained by the priorities of WSI. In fact, it is entirely possible to have a WAI-only runtime that does not provide support for WSI altogether.  Such a runtime could be highly optimized for specific use cases, such as distributed computing, where only high-level application interfaces are needed.
 
+
+
+> ## This discussion document has been superseded by two Issues
+>
+> ```diff
+> - This document is out of date. This is a discussion document. 
+> - It provided a venue for internal discussion with the E-SIG but does not define concrete next steps. 
+> - The reader is referred to the two tasks which were spawned from this document as follows:
+> -   Task 1 : Support for maintaining the existing tooling for WASI Preview 1
+> -   https://github.com/bytecodealliance/sig-embedded/issues/19
+> -   Task 2 : Forward Compatibility / Roadmap for future Convergence 
+> -   https://github.com/bytecodealliance/sig-embedded/issues/20
+> ```
+
 #### When to Use WSI vs. WAI
 
 Developers must make an **explicit choice** between WSI and WAI based on their **specific needs**:
@@ -272,6 +360,22 @@ Developers must make an **explicit choice** between WSI and WAI based on their *
 By clearly defining the target usages, we prevent confusion enabling developers to confidently adopt the right interface for their solutions. This structured layering is key to ensuring the long-term scalability, maintainability, and usability of WASI across different domains, from cloud-native applications to embedded systems.
 
 ## 2:  WebAssembly System Interface Standardization Process
+
+
+
+> ## This discussion document has been superseded by two Issues
+>
+> ```diff
+> - This document is out of date. This is a discussion document. 
+> - It provided a venue for internal discussion with the E-SIG but does not define concrete next steps. 
+> - The reader is referred to the two tasks which were spawned from this document as follows:
+> -   Task 1 : Support for maintaining the existing tooling for WASI Preview 1
+> -   https://github.com/bytecodealliance/sig-embedded/issues/19
+> -   Task 2 : Forward Compatibility / Roadmap for future Convergence 
+> -   https://github.com/bytecodealliance/sig-embedded/issues/20
+> ```
+
+
 
 To ensure that the WebAssembly System Interface (WSI) evolves in a structured and predictable manner, a **dedicated standardization process** should be established. This process would operate separately from other WASI-related efforts, allowing it to **prioritize the unique needs of low-level system interfaces** while still aligning with the broader WebAssembly ecosystem.
 
@@ -295,6 +399,22 @@ To establish trust and predictability, the WSI process should include **quality 
 By establishing a **dedicated standardization track** for WSI, the WebAssembly ecosystem can ensure that **both system-level and application-level use cases** are addressed **without conflict**. This structured approach fosters **innovation without sacrificing stability**, enabling WASI to become a **trusted foundation** for cloud and embedded computing alike.
 
 # Appendix
+
+
+
+> ## This discussion document has been superseded by two Issues
+>
+> ```diff
+> - This document is out of date. This is a discussion document. 
+> - It provided a venue for internal discussion with the E-SIG but does not define concrete next steps. 
+> - The reader is referred to the two tasks which were spawned from this document as follows:
+> -   Task 1 : Support for maintaining the existing tooling for WASI Preview 1
+> -   https://github.com/bytecodealliance/sig-embedded/issues/19
+> -   Task 2 : Forward Compatibility / Roadmap for future Convergence 
+> -   https://github.com/bytecodealliance/sig-embedded/issues/20
+> ```
+
+
 
 ## What are The Preview Releases: Introduction to the Component Model and the Canonical ABI
 
